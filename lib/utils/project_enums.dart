@@ -1,0 +1,1 @@
+enum VisitorStatus { REGISTERED, CHECKEDIN, CHECKEDOUT }
