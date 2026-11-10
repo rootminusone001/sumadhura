@@ -53,6 +53,15 @@ class RegisterVisitorBloc extends Bloc<VisitorEvents, RegisterVisitorState> {
           checkInTime: DateTime.now().toIso8601String(),
         );
       } else if (editVisitorData.status == 'Checked Out' &&
+          (editVisitorData.checkInTime == null ||
+              editVisitorData.checkInTime!.isEmpty)) {
+        emit(
+          EditVisitorFailureState(
+            errorMessage: 'Cannot check out without checking in first.',
+          ),
+        );
+        return;
+      } else if (editVisitorData.status == 'Checked Out' &&
           (editVisitorData.checkOutTime == null ||
               editVisitorData.checkOutTime!.isEmpty)) {
         editVisitorData = editVisitorData.copyWith(
