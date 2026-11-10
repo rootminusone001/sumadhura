@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sumadhura/model/visitors_model.dart';
-import 'package:sumadhura/utils/ui_essential.dart';
+import 'package:sumadhura/constants/visitor_status_colors.dart';
 
 class PortfolioCard extends StatelessWidget {
   final Visitors visitor;
@@ -8,7 +8,7 @@ class PortfolioCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final statusColor = UiEssential.getStatusColor(visitor.status);
+    final statusColor = VisitorStatusColor.getStatusColor(visitor.status);
 
     return Card(
       elevation: 2,
